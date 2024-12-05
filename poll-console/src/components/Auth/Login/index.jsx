@@ -2,14 +2,26 @@
 
 import { Fragment, useState } from "react";
 import { userLogin } from "../../../services/loginService";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+    const navigate = useNavigate(); // Initialize navigate
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('')
 
     const  handleLogin = async () => {
-await userLogin({username: email,password: password});
+let response = await userLogin({username: email,password: password});
+if(response.status===200){
+    response = await response.json();
+    console.log(response);
+    console.log(response.access);
+    localStorage.setItem('token', response.access);
+    navigate('/dashboard');
+}
+else{
+    alert('Invalid creds');
+}
     }
 
     return (
