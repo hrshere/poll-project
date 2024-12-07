@@ -11,7 +11,7 @@ const BarChart = () => {
     const myChart = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green'],
+        labels: ['Aasdfasdfsadfsdfs', 'Basdfsafsdf', 'Csadfsdfasdfsadfsdfsdfasfs', 'Dsdfasdfsdfsdfdsf'],
         datasets: [
           {
             label: '# of Votes',
